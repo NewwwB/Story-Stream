@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { Genre, validate } = require('../models/genre');
 
-router.get('/hello', (req, res) => {
-  res.send('hello motherfucker');
-});
 
 router.get('/', async (req, res) => {
   const genre = await Genre.find().select('-__v').sort('name');
